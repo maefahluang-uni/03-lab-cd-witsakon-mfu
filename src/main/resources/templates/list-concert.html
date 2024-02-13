@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concert List</title>
+</head>
+<body>
+    <h1>Concert List</h1>
+    <a href="/add-concert/">Add Concert</a>
+    <ul>
+        <li th:each="concert : ${concerts}">
+            <a  th:href="@{/delete-concert/{id}(id=${concert.id})}">Delete</a>
+            <a  th:href="@{/concerts/{id}(id=${concert.id})}">Update</a>
+            <span th:text="${concert.title}"></span> 
+           <span th:text="${concert.date}"></span>
+        </li>
+    </ul>
+</body>
+</html>
